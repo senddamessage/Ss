@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Love U Shehab ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+    margin:0;
+    background:#050505;
+    color:#fff;
+    font-family:Arial,Tahoma,sans-serif;
+    overflow-x:hidden;
+    cursor:pointer;
+}
+
+.hidden{display:none!important}
+
+#intro{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+.introBox{
+    width:100%;
+    max-width:700px;
+}
+
+.english{
+    direction:ltr;
+    font-weight:bold;
+    line-height:1.15;
+    margin-bottom:25px;
+}
+
+.word{
+    display:block;
+    font-size:clamp(42px,12vw,75px);
+    min-height:1.1em;
+    color:#fff;
+    text-shadow:0 0 18px rgba(255,79,112,.35);
+}
+
+.arabicIntro{
+    font-size:clamp(18px,5vw,28px);
+    line-height:2;
+    color:#f4f4f4;
+}
+
+.cursor{
+    color:#ff4f70;
+    animation:blink .7s infinite;
+}
+
+@keyframes blink{
+    50%{opacity:0}
+}
+
+#mainPage{
+    min-height:100vh;
+    padding:30px 15px 80px;
+}
+
+.daysBox{
+    width:min(600px,94%);
+    margin:5px auto 30px;
+    padding:22px;
+    border:1.5px solid #ff4f70;
+    border-radius:24px;
+    background:#090909;
+    box-shadow:0 0 30px rgba(255,79,112,.12);
+    text-align:center;
+}
+
+.daysNumber{
+    color:#ff4f70;
+    font-size:clamp(48px,13vw,78px);
+    font-weight:bold;
+}
+
+.daysText{
+    font-size:19px;
+}
+
+.counter{
+    width:min(950px,96%);
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.timeBox{
+    min-height:125px;
+    border:1.5px solid #ff4f70;
+    border-radius:20px;
+    background:#090909;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:10px;
+}
+
+.timeNumber{
+    direction:ltr;
+    color:#ff4f70;
+    font-size:clamp(25px,7vw,43px);
+    font-weight:bold;
+}
+
+.timeLabel{
+    direction:ltr;
+    margin-top:4px;
+    font-size:14px;
+    color:#ddd;
+}
+
+.timeLove{
+    margin-top:6px;
+    font-size:12px;
+    color:#ff9aad;
+    text-align:center;
+}
+
+.memory{
+    width:min(700px,94%);
+    margin:75px auto 0;
+    text-align:center;
+}
+
+.memory img{
+    width:100%;
+    max-height:650px;
+    object-fit:contain;
+    border:1.5px solid #ff4f70;
+    border-radius:22px;
+    display:block;
+}
+
+.caption{
+    margin-top:18px;
+    padding:20px;
+    border:1.5px solid #ff4f70;
+    border-radius:20px;
+    background:#090909;
+    font-size:clamp(18px,4vw,25px);
+    line-height:1.9;
+}
+
+.nextContainer{
+    text-align:center;
+    margin:50px auto 30px;
+}
+
+#nextBtn{
+    border:1.5px solid #ff4f70;
+    color:#fff;
+    background:#090909;
+    padding:15px 60px;
+    border-radius:35px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+#nextBtn:hover{
+    background:#ff4f70;
+    color:#050505;
+}
+
+#secondPage{
+    min-height:100vh;
+    padding:45px 15px 80px;
+}
+
+.longText{
+    width:min(820px,95%);
+    margin:20px auto;
+    padding:28px;
+    border:1.5px solid #ff4f70;
+    border-radius:24px;
+    background:#090909;
+    font-size:clamp(17px,4vw,23px);
+    line-height:2;
+    text-align:right;
+}
+
+.heart{
+    position:fixed;
+    bottom:-40px;
+    color:#ff4f70;
+    pointer-events:none;
+    z-index:10;
+    animation:floatUp linear forwards;
+    opacity:.6;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0) rotate(0deg);
+        opacity:.6;
+    }
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+@media(max-width:600px){
+    .counter{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .timeBox{
+        min-height:115px;
+    }
+
+    .longText{
+        text-align:center;
+        padding:22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- الأغنية الأولى -->
+<audio id="music1" preload="auto">
+    <source
+        src="https://cdn.imageurlgenerator.com/uploads/61e6d3b4-bbf1-4f46-9ba9-b700cea6c97f.mp3"
+        type="audio/mpeg">
+</audio>
+
+<!-- المقدمة -->
+<section id="intro">
+
+    <div class="introBox">
+
+        <div class="english">
+            <span class="word" id="word1"></span>
+            <span class="word" id="word2"></span>
+            <span class="word" id="word3"></span>
+            <span class="word" id="word4"></span>
+        </div>
+
+        <div class="arabicIntro">
+            <span id="arabicText"></span>
+            <span class="cursor">|</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- الصفحة الأولى -->
+<section id="mainPage" class="hidden">
+
+    <div class="daysBox">
+        <div class="daysNumber" id="daysCount">0</div>
+        <div class="daysText">Days together</div>
+    </div>
+
+
+    <div class="counter">
+
+        <div class="timeBox">
+            <div class="timeNumber" id="seconds">0</div>
+            <div class="timeLabel">Seconds</div>
+            <div class="timeLove">سأظل أحبك كل ثانية</div>
+        </div>
+
+        <div class="timeBox">
+            <div class="timeNumber" id="minutes">0</div>
+            <div class="timeLabel">Minutes</div>
+            <div class="timeLove">كل دقيقة</div>
+        </div>
+
+        <div class="timeBox">
+            <div class="timeNumber" id="hours">0</div>
+            <div class="timeLabel">Hours</div>
+            <div class="timeLove">كل ساعة</div>
+        </div>
+
+        <div class="timeBox">
+            <div class="timeNumber" id="days">0</div>
+            <div class="timeLabel">Days</div>
+            <div class="timeLove">كل يوم</div>
+        </div>
+
+        <div class="timeBox">
+            <div class="timeNumber" id="months">0</div>
+            <div class="timeLabel">Months</div>
+            <div class="timeLove">كل شهر</div>
+        </div>
+
+        <div class="timeBox">
+            <div class="timeNumber" id="years">0</div>
+            <div class="timeLabel">Years</div>
+            <div class="timeLove">كل سنة دائما وابدا</div>
+        </div>
+
+    </div>
+
+
+    <div class="memory">
+        <img src="https://i.ibb.co/bjm49PbP/Picsart-26-10-05-15-52-33-817.jpg">
+        <div class="caption">
+            لو كانت الطمأنينة ملمس لكانت يدكَ ♥️!
+        </div>
+    </div>
+
+
+    <div class="memory">
+        <img src="https://i.ibb.co/FLkq20MV/Picsart-26-10-05-16-00-24-617.jpg">
+        <div class="caption">
+            لأ اريد بديل لك سأُحبك في غيابك و وجودك ،🫂♥️
+        </div>
+    </div>
+
+
+    <div class="memory">
+        <img src="https://i.ibb.co/Hp1JL9vP/Picsart-26-10-05-15-41-16-906.jpg">
+        <div class="caption">
+            بتمنى متبقاش ذكري ف يوم لأني بحبك اويي 🥹♥
+        </div>
+    </div>
+
+
+    <div class="memory">
+        <img src="https://i.ibb.co/gbXgh1J3/Picsart-26-10-05-17-13-24-326.jpg">
+        <div class="caption">
+            يمر الزمن لاكن ؛ الذكريات لا تغادرنا ابدا ,⏳♥♥️♥️
+        </div>
+    </div>
+
+
+    <div class="memory">
+        <img src="https://i.ibb.co/84Tg4f4t/IMG-20261005-170919.png">
+        <div class="caption">
+            ياريتك معايا كل ما توحشني ابوسك ،👀💋♥
+        </div>
+    </div>
+
+
+    <div class="nextContainer">
+        <button id="nextBtn">Next ❤️</button>
+    </div>
+
+</section>
+
+
+<!-- الصفحة الثانية -->
+<section id="secondPage" class="hidden">
+
+    <!-- الأغنية الثانية -->
+    <audio id="music2" preload="auto">
+        <source
+            src="https://cdn.imageurlgenerator.com/uploads/14111926-c7d0-46dd-a308-00e05b62bdb4.mp3"
+            type="audio/mpeg">
+    </audio>
+
+
+    <div class="longText">
+
+        ده منغيرر كلاام ميته عليك جدا والله 🌚♥️♥️
+
+        <br><br>
+
+        بحبك يا اغلى من عيوني علياا ،
+        وبدوب فيكك يا كل دنيتي انت ،
+        نفسي نفضل مع بعض العمر كله
+        ومنبعدش عن بعض ابدا ،
+        نفسي نفضل ف حضن بعض ع طول
+        ومنتفارقش ابدا ،
+        انت احلى هديه ربنا هديني بيها ،
+        انت حبيبي واخويا وبابايا وصاحبي
+        وعمري كلهه والله ،
+        بحبك ي حبيب ايامي انت 🫂♥️♥♥️
+
+        <br><br>
+
+        الحمدلله اننا مع بعض
+        والحمدلله مشاكل كتير عدينا بيها ،
+        بحمد ربنا انك معايا وليا والله،
+        بجد انت متتخيلش انا بحبك قد اى ،
+        يديمك ليا والله،
+
+        <br><br>
+
+        انا نفسي فيك اوى ونفسي تفضل لياا🥹♥️
+
+        <br><br>
+
+        بموت فيك وبِدمن كل حاجه فيك والله 🫂♥️
+
+        <br><br>
+
+        بموت فيك يا حبيبي 💋♥️♥♥️🫂
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   القلوب
+========================= */
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "♥";
+
+    heart.style.left =
+        Math.random()*100 + "vw";
+
+    heart.style.fontSize =
+        (12 + Math.random()*25) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random()*6) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function(){
+        heart.remove();
+    },12000);
+}
+
+setInterval(createHeart,600);
+
+
+/* =========================
+   الكتابة
+========================= */
+
+const words = [
+    "I",
+    "Love",
+    "U",
+    "Shehab"
+];
+
+const arabicMessage =
+"يديمك ليا الحبيب والصاحب والاخ والدنياا كلهاا، يديمك معايا العمر كله ي أغلى الناس ع قلبي 🫂♥️";
+
+let wordIndex = 0;
+let letterIndex = 0;
+
+function typeWords(){
+
+    if(wordIndex >= words.length){
+        typeArabic(0);
+        return;
+    }
+
+    const element =
+        document.getElementById(
+            "word"+(wordIndex+1)
+        );
+
+    if(letterIndex < words[wordIndex].length){
+
+        element.textContent +=
+            words[wordIndex][letterIndex];
+
+        letterIndex++;
+
+        setTimeout(typeWords,130);
+
+    }else{
+
+        wordIndex++;
+        letterIndex=0;
+
+        setTimeout(typeWords,300);
+    }
+}
+
+function typeArabic(index){
+
+    const element =
+        document.getElementById("arabicText");
+
+    if(index < arabicMessage.length){
+
+        element.textContent +=
+            arabicMessage[index];
+
+        setTimeout(
+            function(){
+                typeArabic(index+1);
+            },
+            45
+        );
+    }
+}
+
+
+/* =========================
+   الأغاني
+========================= */
+
+const music1 =
+    document.getElementById("music1");
+
+const music2 =
+    document.getElementById("music2");
+
+
+/*
+   تشغيل الأغنية من نقطة معينة
+   بعد التأكد أن الملف جاهز للـ seek
+*/
+
+function playFromSecond(audio, second){
+
+    audio.pause();
+
+    function start(){
+
+        try{
+            audio.currentTime = second;
+        }catch(error){
+            console.log(error);
+        }
+
+        audio.play().catch(function(error){
+            console.log("Play error:",error);
+        });
+
+    }
+
+
+    if(audio.readyState >= 2){
+
+        start();
+
+    }else{
+
+        audio.addEventListener(
+            "canplay",
+            start,
+            {once:true}
+        );
+
+        audio.load();
+    }
+}
+
+
+/* =========================
+   أول ضغطة
+   الأغنية الأولى من 25
+========================= */
+
+let started = false;
+
+document.body.addEventListener(
+    "click",
+    function(){
+
+        if(started){
+            return;
+        }
+
+        started = true;
+
+        playFromSecond(
+            music1,
+            25
+        );
+
+
+        document
+            .getElementById("intro")
+            .classList
+            .add("hidden");
+
+
+        document
+            .getElementById("mainPage")
+            .classList
+            .remove("hidden");
+
+
+        window.scrollTo(0,0);
+
+    }
+);
+
+
+/* =========================
+   العداد
+========================= */
+
+const startDate =
+    new Date(
+        2022,
+        11,
+        27,
+        0,
+        0,
+        0
+    );
+
+function updateCounter(){
+
+    const now = new Date();
+
+    let difference =
+        now - startDate;
+
+    if(difference < 0){
+        difference=0;
+    }
+
+
+    const totalSeconds =
+        Math.floor(
+            difference/1000
+        );
+
+    const seconds =
+        totalSeconds%60;
+
+    const minutes =
+        Math.floor(
+            totalSeconds/60
+        )%60;
+
+    const hours =
+        Math.floor(
+            totalSeconds/3600
+        )%24;
+
+    const totalDays =
+        Math.floor(
+            totalSeconds/86400
+        );
+
+
+    let years =
+        now.getFullYear()
+        -
+        startDate.getFullYear();
+
+
+    const anniversary =
+        new Date(
+            startDate.getFullYear()+years,
+            startDate.getMonth(),
+            startDate.getDate()
+        );
+
+
+    if(anniversary > now){
+        years--;
+    }
+
+
+    let totalMonths =
+        (
+            now.getFullYear()
+            -
+            startDate.getFullYear()
+        )*12
+        +
+        (
+            now.getMonth()
+            -
+            startDate.getMonth()
+        );
+
+
+    if(
+        now.getDate()
+        <
+        startDate.getDate()
+    ){
+        totalMonths--;
+    }
+
+
+    const months =
+        totalMonths%12;
+
+
+    const baseDate =
+        new Date(
+            startDate.getFullYear()+years,
+            startDate.getMonth()+months,
+            startDate.getDate()
+        );
+
+
+    const remainingDays =
+        Math.floor(
+            (
+                now-baseDate
+            )/86400000
+        );
+
+
+    document.getElementById(
+        "daysCount"
+    ).textContent =
+        totalDays.toLocaleString("en-US");
+
+
+    document.getElementById(
+        "years"
+    ).textContent =
+        years;
+
+
+    document.getElementById(
+        "months"
+    ).textContent =
+        months;
+
+
+    document.getElementById(
+        "days"
+    ).textContent =
+        Math.max(
+            0,
+            remainingDays
+        );
+
+
+    document.getElementById(
+        "hours"
+    ).textContent =
+        hours;
+
+
+    document.getElementById(
+        "minutes"
+    ).textContent =
+        minutes;
+
+
+    document.getElementById(
+        "seconds"
+    ).textContent =
+        seconds;
+
+}
+
+updateCounter();
+
+setInterval(
+    updateCounter,
+    1000
+);
+
+
+/* =========================
+   NEXT
+   الثانية من 19
+========================= */
+
+document
+    .getElementById("nextBtn")
+    .addEventListener(
+        "click",
+        function(e){
+
+            e.stopPropagation();
+
+
+            /* إيقاف الأولى */
+
+            music1.pause();
+
+            music1.currentTime=0;
+
+
+            /* الصفحة الثانية */
+
+            document
+                .getElementById("mainPage")
+                .classList
+                .add("hidden");
+
+
+            document
+                .getElementById("secondPage")
+                .classList
+                .remove("hidden");
+
+
+            window.scrollTo(0,0);
+
+
+            /* الثانية تبدأ من 19 */
+
+            playFromSecond(
+                music2,
+                19
+            );
+
+        }
+    );
+
+
+/* تشغيل الكتابة */
+
+typeWords();
+
+</script>
+
+</body>
+</html>
